@@ -9,7 +9,7 @@
 
 #include  <avr/io.h>
 #include  <util/delay.h>
-#include  "pin_config.h"
+#include  "lcd_config.h"
 
 
 #define LCD_CMD_CLEAR_DISPLAY	             0x01

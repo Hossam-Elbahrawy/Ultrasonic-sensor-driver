@@ -7,10 +7,10 @@
 #define PIN_CONFIG_H_
 
 
-#define DATA_BUS		PORTD
-#define CTL_BUS			PORTD
-#define DATA_DDR		DDRD
-#define CTL_DDR			DDRD
+#define DATA_BUS		PORTA
+#define CTL_BUS			PORTA
+#define DATA_DDR		DDRA
+#define CTL_DDR			DDRA
 #define LCD_D4			4
 #define LCD_D5			5
 #define LCD_D6			6
