@@ -4,19 +4,26 @@
 #include  "ultrasonic.h"
 
 uint8_t distance;
-//uint8_t distance_str[5];
+uint8_t distance_str[5];
 
 int main(){
+
 //lcd_init();
 ultrasonic_init();
 DDRA=0xff;
+DDRB=0xff;
 sei();
 
 //lcd_write_word("Distance is ");
 //lcd_goto_xy(1,0);
-
 while(1){
+
 PORTA=distance;
+if(distance < 100)
+{
+  PORTB=0xff;
+}
+PORTB=0x00;
 //itoa(distance,distance_str,10);
 //lcd_write_word(distance_str);
 ultra_triger();

@@ -1,7 +1,7 @@
 /***************************************************************
- *  Source File: PWM.h
+ *  Source File: timer.h
  *
- *  Description: PWM driver for ATMEGA128
+ *  Description: Timer0 driver for ATMEGA32
  *
  **************************************************************/
 

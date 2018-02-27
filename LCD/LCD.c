@@ -1,3 +1,4 @@
+
 /*
  * LCD.c
  *
@@ -44,13 +45,13 @@ void lcd_init(void)
 */
 void lcd_send_command (uint8_t command)
 {
-	DATA_BUS=((command&0b11110000));
+	DATA_BUS=((command&0b11110000)>>4);
 	CTL_BUS &=~(1<<LCD_RS);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(1);
 	CTL_BUS &=~(1<<LCD_EN);
 	_delay_ms(1);
-	DATA_BUS=((command&0b00001111)<<4);
+	DATA_BUS=(command&0b00001111);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(1);
 	CTL_BUS &=~(1<<LCD_EN);
@@ -85,13 +86,13 @@ void lcd_write_word(uint8_t word[20])
 void lcd_write_character(uint8_t character)
 {
 
-	DATA_BUS=((character & 0b11110000));
+	DATA_BUS=((character & 0b11110000)>>4);
 	CTL_BUS|=(1<<LCD_RS);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(2);
 	CTL_BUS &=~(1<<LCD_EN);
 	_delay_ms(2);
-	DATA_BUS=((character & 0b00001111)<<4);
+	DATA_BUS=(character & 0b00001111);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(2);
 	CTL_BUS &=~(1<<LCD_EN);
@@ -110,8 +111,6 @@ void lcd_clear(void)
 	lcd_send_command(LCD_CMD_CLEAR_DISPLAY);
 	_delay_ms(5);
 }
-
-
 void lcd_goto_xy (uint8_t line,uint8_t pos)				//line = 0 or 1
 {
 	lcd_send_command((0x80|(line<<6))+pos);

@@ -7,9 +7,9 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-#include  <avr/io.h>
-#include  <util/delay.h>
-#include  "lcd_config.h"
+#include<avr/io.h>
+#include<util/delay.h>
+#include "lcd_config.h"
 
 
 #define LCD_CMD_CLEAR_DISPLAY	             0x01
@@ -33,6 +33,7 @@ void lcd_write_word(uint8_t[]);
 void lcd_clear(void);
 void lcd_set_courser(uint8_t,uint8_t);
 void lcd_goto_xy (uint8_t , uint8_t );
+
 
 
 #endif /* LCD_H_ */

@@ -11,15 +11,16 @@
 #define CTL_BUS			PORTA
 #define DATA_DDR		DDRA
 #define CTL_DDR			DDRA
-#define LCD_D4			4
-#define LCD_D5			5
-#define LCD_D6			6
-#define LCD_D7			7
-#define LCD_EN			2
-#define	LCD_RW			1
-#define	LCD_RS			0
 
+//LCD DATA PINS
+#define   LCD_D4			   0
+#define   LCD_D5			   1
+#define   LCD_D6			   2
+#define   LCD_D7			   3
 
-
+// LCD CONTROL PINS
+#define   LCD_EN			   5
+#define	  LCD_RW			   6
+#define	  LCD_RS			   7
 
 #endif /* PIN_CONFIG_H_ */
