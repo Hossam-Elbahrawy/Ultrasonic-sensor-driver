@@ -1,4 +1,4 @@
-ultrasonic sensor
+Ultrasonic sensor
 ================
 
 Introduction
