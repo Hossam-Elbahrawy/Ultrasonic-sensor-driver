@@ -35,5 +35,4 @@ void lcd_set_courser(uint8_t,uint8_t);
 void lcd_goto_xy (uint8_t , uint8_t );
 
 
-
 #endif /* LCD_H_ */

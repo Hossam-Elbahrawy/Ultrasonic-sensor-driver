@@ -2,6 +2,7 @@
 #define _ULTRA_H_
 
 #include<avr/io.h>
+#include <avr/interrupt.h>
 #include "timer/timer.h"
 #include <util/delay.h>
 
@@ -11,7 +12,7 @@
 #define   ECHO_DDR      DDRD
 #define   TRIGER_PORT   PORTD
 #define   ECHO_PULLUP   PORTD
-#define   TRIGER        2
+#define   TRIGER        0
 #define   ECHO          3
 
 /*************************************************

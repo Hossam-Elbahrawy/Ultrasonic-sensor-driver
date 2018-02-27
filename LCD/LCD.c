@@ -110,6 +110,8 @@ void lcd_clear(void)
 	lcd_send_command(LCD_CMD_CLEAR_DISPLAY);
 	_delay_ms(5);
 }
+
+
 void lcd_goto_xy (uint8_t line,uint8_t pos)				//line = 0 or 1
 {
 	lcd_send_command((0x80|(line<<6))+pos);
