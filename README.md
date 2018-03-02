@@ -16,11 +16,12 @@ Distance Calculation
 --------
 Sound velocity =   343.00 m/s = 34300 cm/s
 
-Distance of Object (in cm) = (Sound velocity * TIMER Value) / 2
+Distance of Object (in cm)
+                        = (Sound velocity * TIMER Value) / 2
 
-                         = (34300 * TIMER Value) / 2
+                        = (34300 * TIMER Value) / 2
 
-                         = 17150  * Timer
+                        = 17150  * Timer Value
 
 we have selected internal 8 MHz oscillator frequency for ATmega32, with No-presale for timer frequency. Then time to execute 1 instruction is 0.125 us
 So, timer gets incremented after 0.125 us time elapse.
