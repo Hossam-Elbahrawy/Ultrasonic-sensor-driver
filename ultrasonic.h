@@ -3,9 +3,11 @@
 
 #include<avr/io.h>
 #include <avr/interrupt.h>
-#include "timer/timer.h"
+#include<string.h>
+#include <stdlib.h>
+#define F_CPU 8000000UL
 #include <util/delay.h>
-
+#include "timer/timer.h"
 
 
 #define   TRIGER_DDR    DDRD

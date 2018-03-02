@@ -12,6 +12,10 @@ Hardware
 * Ultrasonic sensor (HC-SR04)
 * 2x16 LCD
 
+Distance Calculation
+--------
+1[Distance](distance.PNG)
+
 Circuit
 --------
 ![ultrasonic](circuit/ultrasonic.PNG)
@@ -22,7 +26,6 @@ You will need to have the AVR toolchain installed on your system. This includes:
 * avr-gcc
 * avr-libc
 * avrdude
-* proteus  (for simulation)
 
 Support
 ------

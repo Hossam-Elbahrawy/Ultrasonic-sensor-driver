@@ -7,8 +7,9 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-#include<avr/io.h>
-#include<util/delay.h>
+#include <avr/io.h>
+#define F_CPU 8000000UL
+#include <util/delay.h>
 #include "lcd_config.h"
 
 

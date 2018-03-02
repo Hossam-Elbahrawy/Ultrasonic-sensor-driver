@@ -19,10 +19,10 @@ void lcd_init(void)
 
 	DATA_DDR = (1<<LCD_D7) | (1<<LCD_D6) | (1<<LCD_D5)| (1<<LCD_D4);
 	CTL_DDR |= (1<<LCD_EN)|(1<<LCD_RW)|(1<<LCD_RS);
-
+	
 	DATA_BUS = (0<<LCD_D7)|(0<<LCD_D6)|(1<<LCD_D5)|(0<<LCD_D4);
 	CTL_BUS|= (1<<LCD_EN)|(0<<LCD_RW)|(0<<LCD_RS);
-
+	
 	_delay_ms(1);
 	CTL_BUS &=~(1<<LCD_EN);
 	_delay_ms(1);
@@ -45,13 +45,13 @@ void lcd_init(void)
 */
 void lcd_send_command (uint8_t command)
 {
-	DATA_BUS=((command&0b11110000)>>4);
+	DATA_BUS=((command&0b11110000));
 	CTL_BUS &=~(1<<LCD_RS);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(1);
 	CTL_BUS &=~(1<<LCD_EN);
 	_delay_ms(1);
-	DATA_BUS=(command&0b00001111);
+	DATA_BUS=((command&0b00001111)<<4);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(1);
 	CTL_BUS &=~(1<<LCD_EN);
@@ -86,13 +86,13 @@ void lcd_write_word(uint8_t word[20])
 void lcd_write_character(uint8_t character)
 {
 
-	DATA_BUS=((character & 0b11110000)>>4);
+	DATA_BUS=((character & 0b11110000));
 	CTL_BUS|=(1<<LCD_RS);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(2);
 	CTL_BUS &=~(1<<LCD_EN);
 	_delay_ms(2);
-	DATA_BUS=(character & 0b00001111);
+	DATA_BUS=((character & 0b00001111)<<4);
 	CTL_BUS |=(1<<LCD_EN);
 	_delay_ms(2);
 	CTL_BUS &=~(1<<LCD_EN);
@@ -104,7 +104,7 @@ void lcd_write_character(uint8_t character)
 *Parameters	    : void
 *return		   		: void
 *purpose       	: Clearing the lcd screen by sending
-*				 	the LCD_CMD_CLEAR_DISPLAY command to LCD
+*				 	the LCD_CMD_CLEAR_DISPLAY command to LCD 
 */
 void lcd_clear(void)
 {
