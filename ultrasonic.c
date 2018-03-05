@@ -34,6 +34,7 @@ void ultra_triger(void){
 }
 
 ISR(INT1_vect){
+  if(sensor_working==1){
     if(rising_edge==0){
       TCNT0=0x00;
       rising_edge=1;
@@ -43,15 +44,20 @@ ISR(INT1_vect){
     distance=(timer_counter*256+TCNT0)/466;
     lcd_goto_xy(1,0);
   	itoa(distance,distance_str,10);
-  	strcat(distance_str, " cm  ");
+  	strcat(distance_str, " cm ");
   	lcd_write_word(distance_str);
-  	_delay_ms(200);
+  	_delay_ms(40);
     timer_counter=0;
     rising_edge=0;
-    sensor_working=0;
   }
-}
+}}
 
 ISR(TIMER0_OVF_vect){
     timer_counter++;
+    if(timer_counter >730){
+      TCNT0=0x00;
+      sensor_working=0;
+      rising_edge=0;
+      timer_counter=0;
+    }
 }

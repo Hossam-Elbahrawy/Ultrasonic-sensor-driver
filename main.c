@@ -8,9 +8,10 @@ ultrasonic_init();
 sei();
 
 lcd_write_word("Distance is ");
-
+_delay_ms(10);
 while(1){
   ultra_triger();
+  _delay_ms(15);
 }
 
   return 0;
